@@ -1,8 +1,10 @@
-# 基础类型
+# 基础类型及类型检查
 > number, string, boolean, undefined, null, symbol
 + 基础类型检测
 > typeof，注意typeof null === object
 > object.prototype.toString.call(); 返回[object 所有类型]
+> instanceof 判断对象的原型链上是否有类型的prototype
+> isArray是es5新增的方法，判断是否是数组
 
 # 全局作用域下声明的变量和方法都可以用window对象来访问
 
@@ -65,3 +67,13 @@
 > es6也是把一个文件当做一个模块，es6通过import和export来导入/导出模块、
 + export作用是给当前模块对象添加属性
 + import 语句中 '导出的变量名' as '别名'  方式可以设置别名
+
+## Promise 构造函数是同步执行还是异步执行，那么 then 方法呢？
+> Promise构造函数是同步执行，then方法异步执行
+
+## 全局作用域中，用 const 和 let 声明的变量不在 window 上，那到底在哪里？如何去获取？。
+> 在es5中，顶层对象的属性和全局变量时等价的,var,function声明的全局变量也在顶层对象即windows上
+> 在es6中，使用let,const,class声明的对象不会定义到顶层对象上，而是直接在Script块级作用域中的，直接访问即可
+
+## cookie和token都存放在header中，为什么不会劫持token？
+> 浏览器发送请求的时候会自动带上cookie而并不会自动带上token,csrf就是利用这一特性，所以token可以防范csrf,cookie不行

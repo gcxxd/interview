@@ -16,4 +16,3 @@ var currySum = curry(sum);
 sum(1,2,3,4);
 currySum(1)(2)(3)(4);
 
-    
